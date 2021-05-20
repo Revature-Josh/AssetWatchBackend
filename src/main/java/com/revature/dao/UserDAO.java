@@ -24,6 +24,12 @@ public class UserDAO {
 		return "You've accessed the UserDAO class";
 	}
 	
+	//support function
+	public User find(UserDTO userDTO) {
+		Session session = sessionFactory.getCurrentSession();		
+		return (User)session.createQuery("FROM User u WHERE u.id = ?0").setString(0, Integer.toString(userDTO.getId())).getSingleResult();
+	}
+	
 	@Transactional(readOnly = true)
 	public List<User> getAll(){
 		Session session = sessionFactory.getCurrentSession();		

@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,9 +47,15 @@ public class UserController {
 	//change return type back
 	//@RequestMapping(value="/user/register", method = RequestMethod.POST)
 	@PostMapping(path="/user/register")
-	public @ResponseBody ResponseEntity<Void> registerUser(@RequestBody @Valid UserDTO userDTO) throws Exception{
-		return ResponseEntity.status(200).build();
-				//ResponseEntity.status(200).body(userService.registerUser(userDTO));
+	public @ResponseBody ResponseEntity<Object> registerUser(@RequestBody @Valid UserDTO userDTO) throws Exception{
+		return ResponseEntity.status(200).body(userService.registerUser(userDTO));
+	}
+	
+	@PostMapping(path="/logout")
+	public String logout() {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "User successfully logged out";
 	}
 	
 }
