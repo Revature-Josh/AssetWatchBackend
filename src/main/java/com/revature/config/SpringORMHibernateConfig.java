@@ -24,9 +24,9 @@ public class SpringORMHibernateConfig {
 		
 		// Please use environment variables in a real app
 		dataSource
-		.setUrl("jdbc:mariadb://localhost:3306/assetwatchtest");
+		.setUrl("jdbc:mariadb://localhost:3306/test");
 		dataSource.setUsername("root");
-		dataSource.setPassword("password");
+		dataSource.setPassword("admin");
 		
 		return dataSource;
 	}
