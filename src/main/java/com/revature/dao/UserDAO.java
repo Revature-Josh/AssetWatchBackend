@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.dto.UserDTO;
+import com.revature.exceptions.UserCantLogInExpection;
 import com.revature.model.User;
 
 @Repository
@@ -37,14 +38,20 @@ public class UserDAO {
 	}
 
 	@Transactional(readOnly = true)
-	public User login(UserDTO userDTO) {
-		Session session = sessionFactory.getCurrentSession();
+	public User login(UserDTO userDTO) throws UserCantLogInExpection {
+		User user=null;
 		
-		User user = (User) session.createQuery("FROM User u WHERE u.username = :user AND u.password = :pass")
+		try{Session session = sessionFactory.getCurrentSession();
+		
+		 user = (User) session.createQuery("FROM User u WHERE u.username = :user AND u.password = :pass")
 				.setParameter("user", userDTO.getUsername().trim())
 				.setParameter("pass", userDTO.getPassword().trim())
 				.getSingleResult();
 		
+		
+		}catch(Exception e) {
+			throw new UserCantLogInExpection();
+		}
 		return user;
 	}
 	
