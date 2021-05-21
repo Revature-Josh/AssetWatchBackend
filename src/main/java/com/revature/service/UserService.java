@@ -7,9 +7,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.revature.dao.UserDAO;
 import com.revature.dto.UserDTO;
 import com.revature.exceptions.UserCantLogInExpection;
+import com.revature.model.Investment;
 import com.revature.model.User;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Service
+@NoArgsConstructor @Getter @Setter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class UserService {
 	
 	@Autowired
