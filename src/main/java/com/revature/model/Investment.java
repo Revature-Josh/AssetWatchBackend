@@ -33,7 +33,7 @@ public class Investment {
 	private int id;
 	
 	private String tickerSymbol;
-	private int quantity;
+	private double quantity;
 	
 	@ManyToOne
 	@JoinColumn(name="userID")
