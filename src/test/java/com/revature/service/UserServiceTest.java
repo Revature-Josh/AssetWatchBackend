@@ -30,7 +30,6 @@ public class UserServiceTest {
 	// Fake repository dependency (mocked w/ Mockito)
 	private static UserDAO mockUserDAO;
 	
-	//MockMvc mockMvc;
 	private static UserService userService;
 	
 	@BeforeClass
@@ -40,12 +39,12 @@ public class UserServiceTest {
 		userService = new UserService();
 		userService.setUserDAO(mockUserDAO);
 		
-		UserDTO NotinDB = new UserDTO(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
+		UserDTO testUserDTO = new UserDTO(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
 		User expectedAfterRegister = new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
 		
 		//when statements for tests		
-		when(mockUserDAO.registerUser(eq(NotinDB))).thenReturn(expectedAfterRegister);
-		when(mockUserDAO.login(eq(NotinDB))).thenReturn(expectedAfterRegister);
+		when(mockUserDAO.registerUser(eq(testUserDTO))).thenReturn(expectedAfterRegister);
+		when(mockUserDAO.login(eq(testUserDTO))).thenReturn(expectedAfterRegister);
 	}
 	
 	@Before

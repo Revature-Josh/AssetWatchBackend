@@ -45,7 +45,6 @@ public class UserController {
 	
 	@RequestMapping(value="/user/login", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<User> login(@RequestBody @Valid UserDTO userDTO) throws UserNotFoundException {
-		//HttpSession session = request.getSession();
 		User user=null;
 		try {
 			user= userService.login(userDTO);
@@ -64,8 +63,6 @@ public class UserController {
 		
 	}
 	
-	//change return type back
-	//@RequestMapping(value="/user/register", method = RequestMethod.POST)
 	@PostMapping(path="/user/register")
 	public @ResponseBody ResponseEntity<Object> registerUser(@RequestBody @Valid UserDTO userDTO) throws UserCantLogInExpection{
 		
