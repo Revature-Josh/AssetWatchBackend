@@ -22,7 +22,7 @@ import com.revature.service.InvestmentService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins="http://localhost:4200/", allowCredentials="true")
+@CrossOrigin(origins="*")
 @Controller
 public class InvestmentController {
 
