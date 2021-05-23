@@ -5,7 +5,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
@@ -43,12 +42,8 @@ public class UserServiceTest {
 		User expectedAfterRegister = new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
 		
 		//when statements for tests		
-		when(mockUserDAO.registerUser(eq(testUserDTO))).thenReturn(expectedAfterRegister);
-		when(mockUserDAO.login(eq(testUserDTO))).thenReturn(expectedAfterRegister);
-	}
-	
-	@Before
-	public void beforeTest() {
+		when(userService.userDAO.registerUser(eq(testUserDTO))).thenReturn(expectedAfterRegister);
+		when(userService.userDAO.login(eq(testUserDTO))).thenReturn(expectedAfterRegister);
 	}
 	
 	@Test

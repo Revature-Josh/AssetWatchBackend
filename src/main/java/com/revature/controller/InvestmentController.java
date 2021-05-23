@@ -34,7 +34,7 @@ public class InvestmentController {
 	@Autowired
 	private HttpServletResponse response;
 	
-	@GetMapping(path="/investment/get")
+	@PostMapping(path="/investment/get")
 	public @ResponseBody ResponseEntity<List<Investment>> getInvestmentsByUserId(@RequestBody @Valid UserDTO userDTO) throws Exception{
 		return ResponseEntity.status(200).body(investmentService.getInvestmentsByUserId(userDTO));
 	}
