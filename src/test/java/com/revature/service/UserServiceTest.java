@@ -35,8 +35,8 @@ public class UserServiceTest {
 		User expectedAfterRegister = new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
 		
 		//when statements for tests		
-		when(userService.userDAO.registerUser(eq(testUserDTO))).thenReturn(expectedAfterRegister);
-		when(userService.userDAO.login(eq(testUserDTO))).thenReturn(expectedAfterRegister);
+		when(mockUserDAO.registerUser(eq(testUserDTO))).thenReturn(expectedAfterRegister);
+		when(mockUserDAO.login(eq(testUserDTO))).thenReturn(expectedAfterRegister);
 	}
 	
 	@Test
