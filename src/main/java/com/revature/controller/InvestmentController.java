@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +33,9 @@ public class InvestmentController {
 	@Autowired
 	private HttpServletResponse response;
 	
-	@GetMapping(path="/investment/get")
+	//private Logger log = LoggerFactory.getLogger(InvestmentController.class);
+	
+	@PostMapping(path="/investment/get")
 	public @ResponseBody ResponseEntity<List<Investment>> getInvestmentsByUserId(@RequestBody @Valid UserDTO userDTO) throws Exception{
 		return ResponseEntity.status(200).body(investmentService.getInvestmentsByUserId(userDTO));
 	}
