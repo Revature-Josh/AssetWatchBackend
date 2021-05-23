@@ -39,9 +39,9 @@ public class InvestmentServiceTest {
 		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
 		testInvestmentDTO.setQuantity(10);
 		testInvestmentDTO.setTickerSymbol("aapl");
-		testInvestmentDTO.setUser(new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		testInvestmentDTO.setUser(new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
 		
-		UserDTO testUserDTO = new UserDTO(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
+		UserDTO testUserDTO = new UserDTO(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
 		Investment testInvestment = new Investment(testInvestmentDTO);
 		
 		List<Investment> testInvestmentList = new ArrayList<Investment>();
@@ -59,7 +59,8 @@ public class InvestmentServiceTest {
 		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
 		testInvestmentDTO.setQuantity(10);
 		testInvestmentDTO.setTickerSymbol("aapl");
-		testInvestmentDTO.setUser(new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		testInvestmentDTO.setUser(new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		
 		Investment expected = new Investment(testInvestmentDTO);
 		
 		assertEquals(expected,
@@ -72,7 +73,7 @@ public class InvestmentServiceTest {
 		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
 		testInvestmentDTO.setQuantity(10);
 		testInvestmentDTO.setTickerSymbol("aapl");
-		testInvestmentDTO.setUser(new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		testInvestmentDTO.setUser(new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
 		Investment expected = new Investment(testInvestmentDTO);
 		
 		assertEquals(expected,
@@ -85,11 +86,30 @@ public class InvestmentServiceTest {
 		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
 		testInvestmentDTO.setQuantity(10);
 		testInvestmentDTO.setTickerSymbol("aapl");
-		testInvestmentDTO.setUser(new User(2, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		testInvestmentDTO.setUser(new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
 		Investment expected = new Investment(testInvestmentDTO);
 		
 		assertEquals(expected,
 				investmentService.removeInvestment(testInvestmentDTO));
+	}
+	
+	@Test
+	@Order(4)
+	public void testGetInvestmentsByUserId() {
+		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
+		testInvestmentDTO.setQuantity(10);
+		testInvestmentDTO.setTickerSymbol("aapl");
+		UserDTO data = new UserDTO(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
+		User testUser = new User(data);
+		testInvestmentDTO.setUser(testUser);
+		Investment expectedInList = new Investment(testInvestmentDTO);
+		
+		List<Investment> expected = new ArrayList<Investment>();
+		expected.add(expectedInList);
+		
+		assertEquals(expected,
+				investmentService.getInvestmentsByUserId(data));
+		
 	}
 	
 }
