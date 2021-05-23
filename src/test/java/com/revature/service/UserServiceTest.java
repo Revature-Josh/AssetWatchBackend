@@ -7,7 +7,7 @@ import static org.mockito.Mockito.when;
 
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.MethodOrderer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.core.annotation.Order;
 

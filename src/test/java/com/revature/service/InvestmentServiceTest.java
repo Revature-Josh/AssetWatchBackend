@@ -11,7 +11,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import com.revature.dao.InvestmentDAO;
