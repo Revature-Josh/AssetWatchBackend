@@ -16,6 +16,8 @@ public class ExceptionControllers extends ResponseEntityExceptionHandler {
     public ResponseEntity<MessageDTO>  handleExceptionNotFound() {
 		
 		MessageDTO message= new MessageDTO("user can't be found");
+		logger.info("user can't be found");
+
 		return new ResponseEntity(message,  HttpStatus.NOT_FOUND);
     }
 	
