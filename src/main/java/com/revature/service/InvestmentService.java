@@ -7,13 +7,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.dao.InvestmentDAO;
+import com.revature.dao.UserDAO;
 import com.revature.dto.InvestmentDTO;
 import com.revature.dto.UserDTO;
 import com.revature.model.Investment;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Service
+@NoArgsConstructor @Getter @Setter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class InvestmentService {
 
 	@Autowired
