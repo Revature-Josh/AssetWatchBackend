@@ -4,12 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +29,9 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins="*")
 @Controller
 public class UserController {
+	
+	@Autowired
+	private static Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -57,7 +60,7 @@ public class UserController {
 		{
 			  HttpSession session = request.getSession();
 			  session.setAttribute("loggedInUser",user);
-
+			  logger.info(user.getUsername() + " was successfully logged in");
 		}
 		return ResponseEntity.status(200).body(user);
 		
