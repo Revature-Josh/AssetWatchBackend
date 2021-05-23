@@ -27,7 +27,6 @@ public class SpringORMHibernateConfig {
 		.setUrl("jdbc:mariadb://database-1.c0hosdsgeanm.us-east-1.rds.amazonaws.com:3306/amazondb");
 		dataSource.setUsername("admin");
 		dataSource.setPassword("password");
-		
 		return dataSource;
 	}
 	
