@@ -89,7 +89,7 @@ public class InvestmentServiceTest {
 		Investment expected = new Investment(testInvestmentDTO);
 		
 		assertEquals(expected,
-				investmentService.updateInvestment(testInvestmentDTO));
+				investmentService.removeInvestment(testInvestmentDTO));
 	}
 	
 }
