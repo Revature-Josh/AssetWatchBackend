@@ -112,4 +112,17 @@ public class InvestmentServiceTest {
 		
 	}
 	
+	@Test
+	@Order(5)
+	public void testSetUser() {
+		InvestmentDTO testInvestmentDTO = new InvestmentDTO();
+		testInvestmentDTO.setQuantity(10);
+		testInvestmentDTO.setTickerSymbol("aapl");
+		User expected = new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com");
+		Investment testInvestment = new Investment(testInvestmentDTO);
+		testInvestment.setUser(new User(0, "myUser", "Mcgee", "N/A", "l33t", "randomStranger@somedomain.com"));
+		assertEquals(expected,
+				testInvestment.getUser());
+	}
+	
 }
